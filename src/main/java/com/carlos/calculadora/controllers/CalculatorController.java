@@ -1,27 +1,27 @@
 package com.carlos.calculadora.controllers;
 
-
 import com.carlos.calculadora.dto.Operation;
+import com.carlos.calculadora.services.CalculatorService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
 public class CalculatorController {
 
-	@GetMapping("/add")
-	public Operation add(Operation operation) {
+    @Autowired
+    private CalculatorService calculatorService;
 
-		operation.setResult(operation.getInputA().add(operation.getInputB()));
+    @GetMapping("/add")
+    public Operation add(Operation operation) {
 
-		return operation;
-	}
+        return calculatorService.getAdd(operation);
+    }
 
-	@GetMapping("/subtract")
-	public Operation subtract(Operation operation) {
+    @GetMapping("/subtract")
+    public Operation subtract(Operation operation) {
 
-		operation.setResult(operation.getInputA().subtract(operation.getInputB()));
-
-		return operation;
-	}
+        return calculatorService.getSubstract(operation);
+    }
 
 }

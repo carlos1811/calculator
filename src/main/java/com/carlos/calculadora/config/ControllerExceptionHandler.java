@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class ControllerExceptionHandler {
 
-    private static final String NULLPOINTER = "campo valor null";
+    private static final String NULLPOINTER = "null field";
+    private static final String ARITHMETIC = "Arithmetic exception";
 
 
     @ExceptionHandler(NullPointerException.class)
@@ -21,7 +22,7 @@ public class ControllerExceptionHandler {
     @ExceptionHandler(ArithmeticException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<String> handleArithmetic(RuntimeException ex) {
-        return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(ARITHMETIC, HttpStatus.BAD_REQUEST);
     }
 
 }
