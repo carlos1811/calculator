@@ -21,7 +21,7 @@ class CalculatorServiceTest {
 
     @BeforeEach
     void setUp() {
-        operation = new Operation(new BigDecimal(1),new BigDecimal(1),new BigDecimal(0));
+        operation = new Operation(new BigDecimal(1), new BigDecimal(1), new BigDecimal(0));
     }
 
     @Test
